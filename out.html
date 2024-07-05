@@ -347,17 +347,20 @@
 let f1KeyPressed = false;
 
 // F1キーが押された時の処理
-document.addEventListener('keydown', function(event) {
-  if (event.key === '1') {
-    f1KeyPressed = !f1KeyPressed; // 状態をトグルする
-    const header = document.querySelector('.header');
-    if (f1KeyPressed) {
-      header.classList.add('hidden'); // 非表示にするクラスを追加
-    } else {
-      header.classList.remove('hidden'); // 非表示にするクラスを削除
+document.addEventListener('keydown', (event) => {
+    if (event.key === '1') {
+        const header = document.querySelector('.header');
+        const footer = document.querySelector('.footer');
+        if (header.style.display === 'none') {
+            header.style.display = 'flex';
+            footer.style.display = 'block';
+        } else {
+            header.style.display = 'none';
+            footer.style.display = 'none';
+        }
     }
-  }
 });
+
 
 </script>
 
